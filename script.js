@@ -182,7 +182,7 @@ function cardHTML(a) {
         </div>
 
         <button class="edit-card" aria-label="Edit ${safe(a.company)}">
-          Â·Â·Â·
+          -
         </button>
       </div>
 
