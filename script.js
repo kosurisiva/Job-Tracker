@@ -24,6 +24,31 @@ const stages = [
   }
 ];
 
+const seed = [
+  {
+    id: crypto.randomUUID(),
+    company: "Vercel",
+    role: "Frontend Engineer",
+    stage: "wishlist",
+    workType: "Remote",
+    location: "India",
+    date: "",
+    link: "",
+    notes: "Explore the design systems team."
+  },
+  {
+    id: crypto.randomUUID(),
+    company: "Freshworks",
+    role: "Frontend Developer",
+    stage: "offer",
+    workType: "Hybrid",
+    location: "Chennai",
+    date: today(-20),
+    link: "",
+    notes: "Offer received â€” review details."
+  }
+];
+
 let applications = load();
 let draggedId = null;
 
@@ -157,7 +182,7 @@ function cardHTML(a) {
         </div>
 
         <button class="edit-card" aria-label="Edit ${safe(a.company)}">
-          -
+          Â·Â·Â·
         </button>
       </div>
 
@@ -386,7 +411,7 @@ $("themeBtn").addEventListener("click", () => {
 
 if (localStorage.getItem(THEME_KEY) === "dark") {
   document.body.classList.add("dark");
-  $("themeBtn").textContent = "â˜€";
+  $("themeBtn").textContent = "☾";
 }
 
 const hour = new Date().getHours();
