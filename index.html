@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="A polished, private job application tracker."
+  >
+
+  <title>Orbit — Job Application Tracker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-shell">
+
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Orbit home">
+        <span class="brand-mark">J</span>
+        <span>Job Tracker</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a class="nav-item active" href="#">
+          <span>▦</span>
+          Pipeline
+        </a>
+
+        <a class="nav-item" href="#insights">
+          <span>⌁</span>
+          Insights
+        </a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="mini-card">
+          <span class="pulse"></span>
+
+          <div>
+            <strong id="sideActive">0 active</strong>
+            <small>applications in motion</small>
+          </div>
+        </div>
+
+        <p>Your data stays in this browser.</p>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button
+          class="mobile-brand"
+          id="menuBtn"
+          aria-label="Open menu"
+        >
+          O
+        </button>
+
+        <div>
+          <p class="eyebrow" id="greeting">GOOD MORNIN</p>
+          <h1>Your next move.</h1>
+        </div>
+
+        <button class="primary-btn" id="addBtn">
+          <span>＋</span>
+          Add application
+        </button>
+      </header>
+
+      <section class="stats" aria-label="Application summary">
+        <article>
+          <span class="stat-icon purple">●</span>
+
+          <div>
+            <small>Total applications</small>
+            <strong id="statTotal">0</strong>
+          </div>
+        </article>
+
+        <article>
+          <span class="stat-icon blue">↗</span>
+
+          <div>
+            <small>Interviews</small>
+            <strong id="statInterviews">0</strong>
+          </div>
+        </article>
+
+        <article>
+          <span class="stat-icon green">✓</span>
+
+          <div>
+            <small>Offers</small>
+            <strong id="statOffers">0</strong>
+          </div>
+        </article>
+
+        <article>
+          <span class="stat-icon amber">▷</span>
+
+          <div>
+            <small>Response rate</small>
+            <strong id="statRate">0%</strong>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace">
+        <div class="board-tools">
+          <div class="search-wrap">
+            <span>⌕</span>
+
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="Search company or role…"
+              aria-label="Search applications"
+            >
+          </div>
+
+          <select id="typeFilter" aria-label="Filter work type">
+            <option value="all">All work types</option>
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>On-site</option>
+          </select>
+          
+        <button
+            class="icon-btn"
+            id="themeBtn"
+            aria-label="Toggle dark mode"
+          >
+          </button>
+          </div>
+
+        <div
+          class="board"
+          id="board"
+          aria-label="Application pipeline"
+        ></div>
+
+        <div class="no-results" id="noResults" hidden>
+          <span>⌕</span>
+          <h3>No applications found</h3>
+          <p>Try a different search or filter.</p>
+        </div>
+      </section>
+
+      <section class="insights" id="insights">
+        <div>
+          <p class="eyebrow">THIS MONTH</p>
+          <h2>Small steps, real momentum.</h2>
+        </div>
+
+        <div class="insight-card">
+          <span>↗</span>
+
+          <p>
+            <strong id="monthCount">0 applications</strong>
+            added this month
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <span>⚡</span>
+
+          <p>
+            <strong id="bestStage">Start your pipeline</strong>
+            and the patterns will appear
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="appDialog">
+    <form id="appForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow" id="formEyebrow">NEW OPPORTUNITY</p>
+          <h2 id="formTitle">Add application</h2>
+        </div>
+
+        <button
+          type="button"
+          class="close-btn"
+          id="closeDialog"
+          aria-label="Close"
+        >
+          ×
+        </button>
+      </div>
+
+      <input type="hidden" id="editId">
+
+      <div class="form-grid">
+        <label>
+          Company
+          <input
+            id="company"
+            required
+            maxlength="40"
+            placeholder="e.g. Linear"
+          >
+        </label>
+
+        <label>
+          Role
+          <input
+            id="role"
+            required
+            maxlength="55"
+            placeholder="e.g. Product Designer"
+          >
+        </label>
+
+        <label>
+          Stage
+          <select id="stage">
+            <option value="wishlist">Wishlist</option>
+            <option value="applied">Applied</option>
+            <option value="interview">Interview</option>
+            <option value="offer">Offer</option>
+          </select>
+        </label>
+
+        <label>
+          Work type
+          <select id="workType">
+            <option>Remote</option>
+            <option>Hybrid</option>
+            <option>On-site</option>
+          </select>
+        </label>
+
+        <label>
+          Location
+          <input
+            id="location"
+            maxlength="40"
+            placeholder="e.g. Bengaluru"
+          >
+        </label>
+
+        <label>
+          Applied date
+          <input id="appliedDate" type="date">
+        </label>
+
+        <label class="span-2">
+          Job link
+          <input
+            id="jobLink"
+            type="url"
+            placeholder="https://…"
+          >
+        </label>
+
+        <label class="span-2">
+          Notes
+          <textarea
+            id="notes"
+            maxlength="180"
+            rows="3"
+            placeholder="Recruiter, next steps, useful details…"
+          ></textarea>
+        </label>
+      </div>
+
+      <div class="modal-actions">
+        <button
+          type="button"
+          class="danger-btn"
+          id="deleteBtn"
+          hidden
+        >
+          Delete
+        </button>
+
+        <span></span>
+
+        <button
+          type="button"
+          class="secondary-btn"
+          id="cancelBtn"
+        >
+          Cancel
+        </button>
+
+        <button class="primary-btn" type="submit">
+          Save application
+        </button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
