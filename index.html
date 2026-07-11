@@ -2,28 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta
-    name="description"
-    content="A polished, private job application tracker."
-  >
-
+  <meta name="description" content="A polished, private job application tracker.">
   <title>Orbit — Job Application Tracker</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <div class="app-shell">
 
@@ -35,55 +23,44 @@
 
       <nav aria-label="Main navigation">
         <a class="nav-item active" href="#">
-          <span>▦</span>
-          Pipeline
+          <span>▦</span> Pipeline
         </a>
-
         <a class="nav-item" href="#insights">
-          <span>⌁</span>
-          Insights
+          <span>⌁</span> Insights
         </a>
       </nav>
 
       <div class="sidebar-foot">
         <div class="mini-card">
           <span class="pulse"></span>
-
           <div>
             <strong id="sideActive">0 active</strong>
             <small>applications in motion</small>
           </div>
         </div>
-
         <p>Your data stays in this browser.</p>
       </div>
     </aside>
 
     <main>
       <header class="topbar">
-        <button
-          class="mobile-brand"
-          id="menuBtn"
-          aria-label="Open menu"
-        >
+        <button class="mobile-brand" id="menuBtn" aria-label="Open menu">
           O
         </button>
 
         <div>
-          <p class="eyebrow" id="greeting">GOOD MORNIN</p>
+          <p class="eyebrow" id="greeting">GOOD MORNING</p>
           <h1>Your next move.</h1>
         </div>
 
         <button class="primary-btn" id="addBtn">
-          <span>＋</span>
-          Add application
+          <span>＋</span> Add application
         </button>
       </header>
 
       <section class="stats" aria-label="Application summary">
         <article>
-          <span class="stat-icon purple">●</span>
-
+          <span class="stat-icon purple">◎</span>
           <div>
             <small>Total applications</small>
             <strong id="statTotal">0</strong>
@@ -92,7 +69,6 @@
 
         <article>
           <span class="stat-icon blue">↗</span>
-
           <div>
             <small>Interviews</small>
             <strong id="statInterviews">0</strong>
@@ -101,7 +77,6 @@
 
         <article>
           <span class="stat-icon green">✓</span>
-
           <div>
             <small>Offers</small>
             <strong id="statOffers">0</strong>
@@ -109,8 +84,7 @@
         </article>
 
         <article>
-          <span class="stat-icon amber">▷</span>
-
+          <span class="stat-icon amber">◷</span>
           <div>
             <small>Response rate</small>
             <strong id="statRate">0%</strong>
@@ -122,7 +96,6 @@
         <div class="board-tools">
           <div class="search-wrap">
             <span>⌕</span>
-
             <input
               id="searchInput"
               type="search"
@@ -137,14 +110,15 @@
             <option>Hybrid</option>
             <option>On-site</option>
           </select>
-          
-        <button
+
+          <button
             class="icon-btn"
             id="themeBtn"
             aria-label="Toggle dark mode"
           >
+            ☾
           </button>
-          </div>
+        </div>
 
         <div
           class="board"
@@ -167,7 +141,6 @@
 
         <div class="insight-card">
           <span>↗</span>
-
           <p>
             <strong id="monthCount">0 applications</strong>
             added this month
@@ -176,7 +149,6 @@
 
         <div class="insight-card">
           <span>⚡</span>
-
           <p>
             <strong id="bestStage">Start your pipeline</strong>
             and the patterns will appear
